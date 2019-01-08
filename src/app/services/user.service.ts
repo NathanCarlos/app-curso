@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://ec2-52-15-214-217.us-east-2.compute.amazonaws.com:8081';
+  private baseUrl = 'http://localhost:8081';
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
