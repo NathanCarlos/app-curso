@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{home}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let notification of notifications">
+    <ion-item>
+      <ion-button shape="round" type="submit" color="primary" fill="outline" (click)="pageList()">Tarefas de Hoje</ion-button>
+      <ion-badge>{{notification.result}}</ion-badge>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngFor="let notificationAll of notificationsAll">
+    <ion-item>
+      <ion-button shape="round" type="submit" color="primary" fill="outline" (click)="pageListAll()">Total de Tarefas</ion-button>
+      <ion-badge>{{notificationAll.result}}</ion-badge>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

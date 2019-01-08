@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Todas Tarefas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="background-color: transparent; box-shadow:none;">
+    <!-- <ion-button expand="block" fill="outline" (click)="addTask()">
+      <ion-icon name="add"></ion-icon>
+    </ion-button> -->
+    <ion-item>
+      <ion-label>Visualizar: </ion-label>
+      <ion-select [(ngModel)]="check" [ngModelOptions]="{standalone: true}" value="1" ok-text="Concluir" cancel-text="Cancelar" (ionChange)="changeOption()">
+        <ion-select-option value="1">Não Concluídas</ion-select-option>
+        <ion-select-option value="0">Concluidas</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+
+  <ion-card *ngFor="let task of tasks" (click)="allDescription(task.id, task.title, task.description, task.dataInicio, task.dataFim, task.done, task.aviso)">
+    <ion-card-header>
+      <ion-card-title>{{task.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{task.description}}</p>
+      <ion-item>
+        <ion-label>Início: </ion-label>
+        <ion-datetime display-format=" DD MMMM, YYYY HH:mm" month-names="Janeiro, Fevereiro, Mar\u00e7o, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro"
+          month-short-names="Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez" day-names="Domingo, Segunda-feira, Ter\u00e7a-feira, Quarta-feira, Quinta-feira, Sexta-feira, Sabado"
+          day-short-names="Dom, Seg, Ter, Qua, Qui, Sex, Sab" value="{{task.dataInicio}}" disabled="true"></ion-datetime>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" (click)="addTask()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

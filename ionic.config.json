@@ -1,0 +1,7 @@
+{
+  "name": "app-ongest",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

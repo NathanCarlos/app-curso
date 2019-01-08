@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Editar Atividade
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="editTask()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Título</ion-label>
+        <ion-input required type="text" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" maxlength="50"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Descrição</ion-label>
+        <ion-input required type="text" [(ngModel)]="description" [ngModelOptions]="{standalone: true}" maxlength="255"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Início: </ion-label>
+        <ion-datetime display-format=" DD MMMM, YYYY HH:mm" month-names="Janeiro, Fevereiro, Mar\u00e7o, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro"
+          month-short-names="Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez" day-names="Domingo, Segunda-feira, Ter\u00e7a-feira, Quarta-feira, Quinta-feira, Sexta-feira, Sabado"
+          day-short-names="Dom, Seg, Ter, Qua, Qui, Sex, Sab" [(ngModel)]="dateStart" [ngModelOptions]="{standalone: true}"
+          max="2040"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fim: </ion-label>
+        <ion-datetime display-format=" DD MMMM, YYYY HH:mm" month-names="Janeiro, Fevereiro, Mar\u00e7o, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro"
+          month-short-names="Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez" day-names="Domingo, Segunda-feira, Ter\u00e7a-feira, Quarta-feira, Quinta-feira, Sexta-feira, Sabado"
+          day-short-names="Dom, Seg, Ter, Qua, Qui, Sex, Sab" [(ngModel)]="dateEnd" [ngModelOptions]="{standalone: true}"
+          max="2040"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Aviso de Tarefa: </ion-label>
+        <ion-select [(ngModel)]="aviso" [ngModelOptions]="{standalone: true}" value="0" ok-text="Concluir" cancel-text="Cancelar">
+          <ion-select-option value="0">5 Minutos Antes</ion-select-option>
+          <ion-select-option value="1">10 Minutos Antes</ion-select-option>
+          <ion-select-option value="2">20 Minutos Antes</ion-select-option>
+          <ion-select-option value="3">30 Minutos Antes</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Concluída</ion-label>
+        <ion-checkbox color="primary" [checked]="done" (click)="doneTask()"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-button shape="round" color="primary" fill="outline" (click)="back()">
+      <ion-icon name="arrow-round-back"></ion-icon>
+    </ion-button>
+    <ion-button shape="round" type="submit" color="primary" fill="outline">
+      <ion-icon name="done-all"></ion-icon>
+    </ion-button>
+    <ion-button shape="round" color="primary" fill="outline" (click)="presentAlertConfirm()">
+      <ion-icon name="close"></ion-icon>
+    </ion-button>
+    <ion-button shape="round" color="primary" fill="outline" (click)="copyTask()">
+      <ion-icon name="copy"></ion-icon>
+    </ion-button>
+  </form>
+</ion-content>
