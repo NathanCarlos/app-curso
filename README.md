@@ -1,5 +1,5 @@
 # app-curso
-Aplicativo feito para o meu curso de ionic 4.
+Application made for my ionic course 4.
 
-* Baixar o repositório, entrar nele e executar npm install.
-* Executar ionic serve.
+* Download the repository, enter it and run npm install.
+* Run the command ionic serve.
